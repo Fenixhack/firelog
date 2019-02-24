@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+  elasticsearch:
+    # To be able to run Elastic, run these after first run:
+    # sudo chmod -R 777 elastic-data/
+    # sudo sysctl -w vm.max_map_count=262144
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.5.4
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    # ports:
+    #   - "9200:9200"
+    #   - "9300:9300"
+    volumes:
+      - ./elastic-data:/usr/share/elasticsearch/data
+    networks:
+      - internal
+  api:
+    # image: firelog_image
+    container_name: firelog_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ELASTIC_URL=elasticsearch:9200
+    ports: 
+      - "80:80"
+    networks:
+      - internal
+    command: ["node", "api.js"]
+  cron:
+    # image: firelog_image
+    container_name: firelog_cron
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ELASTIC_URL=elasticsearch:9200
+      # Every 10 minutes:
+      - CRON_MINUTES=10
+    networks:
+      - internal
+    command: ["node", "cron.js"]
+
+
+networks:
+    internal:
+        driver: bridge

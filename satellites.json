@@ -1,0 +1,4 @@
+[
+	{"name":"MODIS","url":"https://firms.modaps.eosdis.nasa.gov/data/active_fire/c6/csv/MODIS_C6_Global_24h.csv"},
+	{"name":"VIIRS","url":"https://firms.modaps.eosdis.nasa.gov/data/active_fire/viirs/csv/VNP14IMGTDL_NRT_Global_24h.csv"}
+]

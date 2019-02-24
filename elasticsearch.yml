@@ -1,0 +1,4 @@
+---
+
+http.max_content_length: 500mb
+discovery.type: single-node

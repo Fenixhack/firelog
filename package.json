@@ -1,0 +1,18 @@
+{
+  "name": "firelof",
+  "version": "0.0.1",
+  "description": "REST API for fires using satellites",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node api.js"
+  },
+  "author": "The late bloomers",
+  "license": "Copyleft",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cron": "^1.6.0",
+    "csvtojson": "^2.0.8",
+    "elasticsearch": "^15.4.1",
+    "express": "^4.16.4"
+  }
+}
