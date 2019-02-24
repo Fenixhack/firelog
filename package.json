@@ -1,5 +1,5 @@
 {
-  "name": "firelof",
+  "name": "firelog",
   "version": "0.0.1",
   "description": "REST API for fires using satellites",
   "scripts": {
